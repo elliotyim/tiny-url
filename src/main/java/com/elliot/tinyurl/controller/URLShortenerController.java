@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("shortener")
 @RequiredArgsConstructor
@@ -22,7 +24,9 @@ public class URLShortenerController {
     private final URLShortenerService urlShortenerService;
 
     @PostMapping
-    public ResponseEntity<URLResponseDTO> shortenUrl(@RequestBody URLRequestDTO urlRequestDTO) throws Exception {
+    public ResponseEntity<URLResponseDTO> shortenUrl(
+            @Valid @RequestBody URLRequestDTO urlRequestDTO
+    ) throws Exception {
         URLResponseDTO urlResponseDTO = urlService.getUrl(urlRequestDTO);
         if (urlResponseDTO == null) {
             urlRequestDTO = urlShortenerService.shortenUrl(urlRequestDTO);

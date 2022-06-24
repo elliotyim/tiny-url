@@ -4,10 +4,16 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 @Getter
 @Setter
 public class URLRequestDTO {
+    @NotBlank
+    @Size(min = 1, max = 1300)
     private String url;
+
     private String shortUrl;
 
     @Builder
