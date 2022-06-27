@@ -1,7 +1,7 @@
 package com.elliot.tinyurl.errors;
 
 public interface ErrorEnum {
-    String getStatus();
+    int getStatus();
     String getCode();
     String getMessage();
 }

@@ -13,13 +13,13 @@ public class ErrorResponse {
     private String message;
     private String detail;
 
-    public ErrorResponse(ErrorCode code) {
+    public ErrorResponse(ErrorEnum code) {
         this.status = code.getStatus();
         this.code = code.getCode();
         this.message = code.getMessage();
     }
 
-    public static ErrorResponse of(ErrorCode code) {
+    public static ErrorResponse of(ErrorEnum code) {
         return new ErrorResponse(code);
     }
 }
