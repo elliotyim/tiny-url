@@ -2,9 +2,9 @@ package com.elliot.tinyurl.config;
 
 import com.elliot.tinyurl.repository.URLRepository;
 import com.elliot.tinyurl.service.URLService;
-import com.elliot.tinyurl.service.URLShortenerService;
-import com.elliot.tinyurl.service.impl.Sha256URLShortenerService;
 import com.elliot.tinyurl.service.impl.SimpleURLService;
+import com.elliot.tinyurl.util.URLShortener;
+import com.elliot.tinyurl.util.impl.Sha256URLShortener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,12 +29,12 @@ public class AppConfig {
     }
 
     @Bean
-    public URLService urlService(URLRepository urlRepository) {
-        return new SimpleURLService(urlRepository);
+    public URLShortener urlShortener(MessageDigest md) {
+        return new Sha256URLShortener(baseUrl, md);
     }
 
     @Bean
-    public URLShortenerService urlShortenerService(MessageDigest md) {
-        return new Sha256URLShortenerService(baseUrl, md);
+    public URLService urlService(URLRepository urlRepository, URLShortener urlShortener) {
+        return new SimpleURLService(urlRepository, urlShortener);
     }
 }
