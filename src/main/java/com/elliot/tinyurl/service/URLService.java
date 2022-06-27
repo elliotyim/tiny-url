@@ -6,5 +6,5 @@ import com.elliot.tinyurl.dto.response.URLResponseDTO;
 public interface URLService {
     URLResponseDTO getUrl(URLRequestDTO urlRequestDTO) throws Exception;
 
-    URLResponseDTO saveUrl(URLRequestDTO urlResponseDTO) throws Exception;
+    URLResponseDTO shortenUrlAndSave(URLRequestDTO urlRequestDTO);
 }

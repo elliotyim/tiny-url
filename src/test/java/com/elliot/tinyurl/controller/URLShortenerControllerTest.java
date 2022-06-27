@@ -58,7 +58,7 @@ class URLShortenerControllerTest {
     }
 
     @Test
-    @DisplayName("URL 단축 - 1000자 이상")
+    @DisplayName("URL 단축 - 1500자 이상")
     void requestWithTooLongUrl() throws Exception {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i< 1500; i++)
