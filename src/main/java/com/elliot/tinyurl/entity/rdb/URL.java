@@ -1,4 +1,4 @@
-package com.elliot.tinyurl.model;
+package com.elliot.tinyurl.entity.rdb;
 
 import lombok.Builder;
 import lombok.Getter;
