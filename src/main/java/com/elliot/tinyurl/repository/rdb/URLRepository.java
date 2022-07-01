@@ -1,6 +1,6 @@
-package com.elliot.tinyurl.repository;
+package com.elliot.tinyurl.repository.rdb;
 
-import com.elliot.tinyurl.model.URL;
+import com.elliot.tinyurl.entity.rdb.URL;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
